@@ -108,6 +108,9 @@ STATIC_URL = 'static/'
 # Directorio donde 'collectstatic' reunirá todos los archivos estáticos para producción.
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = '/app/mediafiles'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
