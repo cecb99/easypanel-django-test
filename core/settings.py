@@ -18,6 +18,9 @@ DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 
 ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '').split(',')
 
+CSRF_TRUSTED_ORIGINS = ['http://192.168.100.176']
+
+
 
 # Application definition
 
