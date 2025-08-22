@@ -18,9 +18,12 @@ DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 
 ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '').split(',')
 
-CSRF_TRUSTED_ORIGINS = ['http://192.168.100.176', 'http://localhost:8000', 'http://127.0.0.1:8000']
-
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://192.168.100.176',  # <--- ¡Añade esta línea!
+    'http://192.168.100.176',
+    'http://localhost',
+    'http://127.0.0.1'
+]
 
 # Application definition
 
@@ -129,3 +132,13 @@ CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'UTC'
+
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Opcional pero recomendado:
+# Redirige automáticamente todo el tráfico HTTP a HTTPS.
+SECURE_SSL_REDIRECT = True
+# Asegura que las cookies solo se envíen por HTTPS.
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
